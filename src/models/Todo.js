@@ -5,7 +5,10 @@ const todoSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
     todo: String,
-    completed: Boolean,
+    completed: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

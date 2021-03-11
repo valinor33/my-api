@@ -3,31 +3,72 @@
   <%- include('partials/head') %>
   <body>
     <div class="container">
-      <h1 class="pt-5">Valinor App</h1>
-      <form action="/todo" method="post" class="">
-        <div class="form-group">
-          <label for="todo">Tarea</label>
-          <input
-            class="form-control"
-            type="text"
-            name="todo"
-            id="todo"
-            placeholder="Ingrese nueva tarea..."
-          />
-          <button type="submit" class="btn btn-primary">Agregar</button>
+      <div class="row">
+        <div class="col-md-5 mt-5">
+          <h2>Valinor Todo</h2>
+          <!-- ADD TODO -->
+          <div class="card">
+            <div class="card-body">
+              <form action="/todo" method="post" class="">
+                <div class="form-group">
+                  <label for="todo"><strong>Tarea</strong></label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="todo"
+                    id="todo"
+                    placeholder="Ingrese nueva tarea..."
+                  />
+                  <button type="submit" class="btn btn-primary btn-block mt-4">
+                    Agregar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- HOME -->
         </div>
-      </form>
-      <ul>
-        <% todos.forEach(todo => { %>
-        <li>
-          <%= todo.todo %>
-          <a href="/todoEdit/<%= todo.id %>">
-            <span class="fas fa-edit"></span>
-          </a>
-        </li>
-        <% }); %>
-      </ul>
-      <a href="/">Back</a>
+        <div class="col-md-7 mt-5">
+          <h2>Tareas</h2>
+          <!-- LIST -->
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Created By</th>
+                <th>Todo</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% todos.forEach(todo => { %>
+              <tr>
+                <td><%= todo.user %></td>
+                <td><%= todo.todo %></td>
+                <td>
+                  <a href="" class="btn btn-dark"
+                    >Done
+                    <span class="fas fa-check"></span>
+                  </a>
+                  <a href="" class="btn btn-danger"
+                    >Delete
+                    <span class="fas fa-trash"></span>
+                  </a>
+                  <a href="" class="btn btn-info"
+                    >Edit
+                    <span class="fas fa-edit"></span>
+                  </a>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="btn btn-light">
+        <a href="/">Back
+          <span class="fas fa-hand-point-left text-dark">
+        </a>
+      </div>
     </div>
   </body>
 </html>

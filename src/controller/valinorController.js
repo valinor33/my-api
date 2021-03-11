@@ -5,7 +5,7 @@ const valinorController = {
   home: async (req, res) => {
     res.render("home", {});
   },
-  /* TODO APP */
+  /* TODO APP CRUD */
   todo: async (req, res) => {
     const todos = await Todo.find({});
     res.render("todo", { todos });
@@ -14,7 +14,6 @@ const valinorController = {
     const { todo } = req.body;
     const newTodo = new Todo({
       todo,
-      completed: false,
     });
     await newTodo.save();
     res.redirect("/todo");
@@ -24,6 +23,7 @@ const valinorController = {
     console.log(todoId);
     res.redirect("/todo");
   },
+  /* USER CRUD */
 };
 
 module.exports = valinorController;

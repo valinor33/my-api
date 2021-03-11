@@ -8,6 +8,7 @@ const userSchema = new Schema(
     email: { type: String, unique: true },
     password: { type: String, unique: true },
     cellPhone: String,
+    todos: [{ type: Schema.Types.ObjectId, ref: "Todo" }],
   },
   { timestamps: true }
 );

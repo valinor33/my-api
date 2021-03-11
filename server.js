@@ -14,6 +14,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+/* VIEW ENGINE */
+app.set("view engine", "ejs");
+
 /* ROUTER */
 app.use(valinorRouter);
 

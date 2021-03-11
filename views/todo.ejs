@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body>
+    <div class="container">
+      <h1 class="pt-5">Valinor App</h1>
+      <form action="/todo" method="post" class="">
+        <div class="form-group">
+          <label for="task">Tarea</label>
+          <input
+            class="form-control"
+            type="text"
+            name="task"
+            id="task"
+            placeholder="Ingrese nueva tarea..."
+          />
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
+      </form>
+      <a href="/">Back</a>
+    </div>
+  </body>
+</html>

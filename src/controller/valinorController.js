@@ -31,7 +31,7 @@ const valinorController = {
     const { id } = req.params;
     const todo = await Todo.findById(id);
     todo.completed = !todo.completed;
-    todo.save();
+    await todo.save();
     res.redirect("/todo");
   },
   /* USER CRUD */

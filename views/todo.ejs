@@ -6,17 +6,27 @@
       <h1 class="pt-5">Valinor App</h1>
       <form action="/todo" method="post" class="">
         <div class="form-group">
-          <label for="task">Tarea</label>
+          <label for="todo">Tarea</label>
           <input
             class="form-control"
             type="text"
-            name="task"
-            id="task"
+            name="todo"
+            id="todo"
             placeholder="Ingrese nueva tarea..."
           />
           <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
       </form>
+      <ul>
+        <% todos.forEach(todo => { %>
+        <li>
+          <%= todo.todo %>
+          <a href="/todoEdit/<%= todo.id %>">
+            <span class="fas fa-edit"></span>
+          </a>
+        </li>
+        <% }); %>
+      </ul>
       <a href="/">Back</a>
     </div>
   </body>

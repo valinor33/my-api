@@ -18,9 +18,20 @@ const valinorController = {
     await newTodo.save();
     res.redirect("/todo");
   },
-  editTodo: async (req, res) => {
-    const todoId = await Todo.findById(req.params.id);
-    console.log(todoId);
+  deleteTodo: async (req, res) => {
+    await Todo.findById(req.params.id).then((todo) => {
+      if (!todo) {
+        res.render("error404", {});
+      }
+      todo.remove();
+      res.redirect("/todo");
+    });
+  },
+  updateTodo: async (req, res) => {
+    const { id } = req.params;
+    const todo = await Todo.findById(id);
+    todo.completed = !todo.completed;
+    todo.save();
     res.redirect("/todo");
   },
   /* USER CRUD */

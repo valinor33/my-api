@@ -45,11 +45,11 @@
                 <td><%= todo.user %></td>
                 <td><%= todo.todo %></td>
                 <td>
-                  <a href="" class="btn btn-dark"
+                  <a href="/todo/update/<%= todo.id %> " class="btn <%= todo.completed ? "btn-success" : "btn-dark" %> "
                     >Done
                     <span class="fas fa-check"></span>
                   </a>
-                  <a href="" class="btn btn-danger"
+                  <a href="/todo/delete/<%= todo.id %> " class="btn btn-danger"
                     >Delete
                     <span class="fas fa-trash"></span>
                   </a>
@@ -66,7 +66,7 @@
       </div>
       <div class="btn btn-light">
         <a href="/">Back
-          <span class="fas fa-hand-point-left text-dark">
+          <span class="fas fa-hand-point-left">
         </a>
       </div>
     </div>

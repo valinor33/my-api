@@ -1,0 +1,21 @@
+{
+    "version": 2,
+    "builds": [
+    { "src": "server.js", "use": "@now/node-server" },
+    { "src": "/public/**/*", "use": "@now/static" }
+    ],
+    "routes": [
+    {
+    "src": "/css/(.*)",
+    "dest": "/public/css/$1"
+    },
+    {
+    "src": "/img/(.*)",
+    "dest": "/public/img/$1"
+    },
+    {
+    "src": "/(.*)",
+    "dest": "/server.js"
+    }
+    ]
+    }

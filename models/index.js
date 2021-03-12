@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const User = require("./User");
 const Todo = require("./Todo");
 
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
 });
 

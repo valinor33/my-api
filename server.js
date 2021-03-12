@@ -6,7 +6,7 @@ const cors = require("cors");
 const path = require("path");
 
 /* PORT */
-const PORT = process.env.APP_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 const valinorRouter = require("./router/valinorRouter");
 const morgan = require("morgan");
